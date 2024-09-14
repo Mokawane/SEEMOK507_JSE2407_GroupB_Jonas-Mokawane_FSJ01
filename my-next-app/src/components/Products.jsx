@@ -20,7 +20,13 @@ export default function Products() {
       <ul>
         {products.map((products) => (
           <li key={products.id}>
-            <img src={products.images} alt={products.title} />
+            {products.images.map((image, index) => (
+              <img
+                key={index}
+                src={image}
+                alt={`${products.title} image ${index + 1}`}
+              />
+            ))}
             <h2>{products.title}</h2>
             <p>Category: {products.category}</p>
             <p>Price: ${products.price}</p>
