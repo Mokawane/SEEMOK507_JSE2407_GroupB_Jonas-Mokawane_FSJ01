@@ -17,9 +17,10 @@ export default function Products() {
     if (!products) return <div>Loading...</div>;
   
     return (
-      <ul>
+      <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
         {products.map((products) => (
-          <li key={products.id}>
+          <li key={products.id}
+              className="bg-white border p-2 m-2 shadow-lg rounded-lg">
             {products.images.map((image, index) => (
               <img
                 key={index}
