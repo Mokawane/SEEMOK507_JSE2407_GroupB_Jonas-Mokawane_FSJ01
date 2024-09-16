@@ -5,12 +5,25 @@ import Link from 'next/link';
 
 const FALLBACK_IMAGE_URL = 'https://via.placeholder.com/400?text=Image+Not+Found';
 
+/**
+ * Component that displays detailed information about a specific product, including images, title, price, category, stock, reviews, etc.
+ *
+ * @component
+ * @param {Object} params - Object containing the product ID from the URL.
+ */
 export default function ProductDetail({ params }) {
   const [product, setProduct] = useState(null);
   const [currentImage, setCurrentImage] = useState('');
   const [images, setImages] = useState([]);
   const { id } = params;
 
+  /**
+   * Fetches the product details from the API when the component mounts or the `id` changes.
+   * Sets the product data, images, and the initial displayed image.
+   *
+   * @async
+   * @function fetchProduct
+   */
   useEffect(() => {
     async function fetchProduct() {
       try {
@@ -31,6 +44,11 @@ export default function ProductDetail({ params }) {
     }
   }, [id]);
 
+  /**
+   * Handles setting the fallback image when an error occurs while loading the product image.
+   *
+   * @param {Object} e - The event object.
+   */
   const handleError = (e) => {
     e.target.src = FALLBACK_IMAGE_URL;
   };
