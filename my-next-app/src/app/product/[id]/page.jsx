@@ -81,6 +81,43 @@ export default function ProductDetail({ params }) {
           <p className="text-xl text-gray-700 mb-4">Category: {product.category}</p>
           <p className="text-xl text-gray-700 mb-4">Price: ${product.price}</p>
           <p className="text-md text-gray-500 mb-6">{product.description}</p>
+          {product.tags && (
+            <div className="mb-4">
+              <h3 className="text-lg font-semibold">Tags:</h3>
+              <ul className="list-disc pl-5">
+                {product.tags.map((tag, index) => (
+                  <li key={index}>{tag}</li>
+                ))}
+              </ul>
+            </div>
+          )}
+          {product.rating && (
+            <div className="mb-4">
+              <h3 className="text-lg font-semibold">Rating:</h3>
+              <p>{product.rating} / 5</p>
+            </div>
+          )}
+          {product.stock && (
+            <div className="mb-4">
+              <h3 className="text-lg font-semibold">Stock:</h3>
+              <p>{product.stock} items available</p>
+            </div>
+          )}
+          {product.reviews && product.reviews.length > 0 && (
+            <div>
+              <h3 className="text-lg font-semibold mb-2">Reviews:</h3>
+              <ul>
+                {product.reviews.map((review, index) => (
+                  <li key={index} className="border-b border-gray-200 pb-2 mb-2">
+                    <p className="font-semibold">{review.name}</p>
+                    <p className="text-sm text-gray-500">{review.date}</p>
+                    <p>{review.comment}</p>
+                    <p className="font-semibold">Rating: {review.rating} / 5</p>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
         </div>
       </div>
     </div>
