@@ -1,36 +1,138 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Getting Started
+# Next.js E-commerce Application
 
-First, run the development server:
+This project is a simple e-commerce platform built using **Next.js**, **React**, and **Tailwind CSS**. It provides functionality for viewing products, navigating through product pages, and viewing detailed information for each product.
+
+## Table of Contents
+
+- [Technologies Used](#technologies-used)
+- [Features](#features)
+- [Setup Instructions](#setup-instructions)
+  - [Prerequisites](#prerequisites)
+  - [Installation](#installation)
+  - [Running the Development Server](#running-the-development-server)
+  - [Build for Production](#build-for-production)
+- [Project Structure](#project-structure)
+- [Usage](#usage)
+  - [Products Page](#products-page)
+  - [Product Detail Page](#product-detail-page)
+- [Contributing](#contributing)
+- [License](#license)
+
+## Technologies Used
+
+- **Next.js**: A React framework with server-side rendering and static site generation.
+- **React**: JavaScript library for building user interfaces.
+- **Tailwind CSS**: A utility-first CSS framework for building responsive, mobile-first designs.
+- **Node.js**: JavaScript runtime for building server-side applications.
+
+## Features
+
+- Product listing with pagination.
+- View detailed information for each product.
+- Interactive image carousel for product images.
+- Responsive design using Tailwind CSS.
+
+## Setup Instructions
+
+### Prerequisites
+
+Make sure you have the following installed:
+
+- **Node.js** (v14 or later)
+- **npm** or **yarn**
+
+### Installation
+
+1. Clone the repository:
+
+   ```bash
+   git clone https://github.com/Mokawane/SEEMOK507_JSE2407_GroupB_Jonas-Mokawane_FSJ01SEEMOK507_JSE2407_GroupB_Jonas-Mokawane_FSJ01.git
+   cd my-next-app
+   ```
+
+2. Install dependencies:
+
+   ```bash
+   npm install
+   # or
+   yarn install
+   ```
+
+### Running the Development Server
+
+Run the following command to start the development server:
 
 ```bash
 npm run dev
 # or
 yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) in your browser to view the app.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+### Build for Production
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+To build the project for production, run:
 
-## Learn More
+```bash
+npm run build
+# or
+yarn build
+```
 
-To learn more about Next.js, take a look at the following resources:
+You can start the production server using:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+npm start
+# or
+yarn start
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Project Structure
 
-## Deploy on Vercel
+```
+src/
+├── app/
+│   ├── fonts/
+│   ├── product/[id]/
+│   │   └── page.jsx
+│   └── products/
+│       └── page.jsx
+├── components/
+│   └── Header.jsx
+├── globals.css
+├── layout.js
+├── page.js
+public/
+├── favicon.ico
+.eslintrc.json
+tailwind.config.js
+next.config.mjs
+package.json
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Description
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- **app/products/page.jsx**: Displays the list of products.
+- **app/product/[id]/page.jsx**: Displays detailed information for a specific product.
+- **components/Header.jsx**: Contains the header component.
+- **globals.css**: Global CSS styles.
+- **layout.js**: Defines the layout for all pages.
+- **tailwind.config.js**: Configuration file for Tailwind CSS.
+- **next.config.mjs**: Next.js configuration file.
+
+## Usage
+
+### Products Page
+
+On the products page, you will see a paginated list of products fetched from the API. Users can navigate through different pages and view more products.
+
+### Product Detail Page
+
+By clicking on a product, the user is taken to the product detail page, where detailed information such as images, description, category, and reviews are displayed. Users can also browse through different product images using the image carousel.
+
+## Contributing
+
+If you want to contribute to this project, feel free to open a pull request. Please ensure your code follows best practices and is well-documented.
+
