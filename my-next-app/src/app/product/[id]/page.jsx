@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import Link from 'next/link';
 
 export default function ProductDetail({ params }) {
   const [product, setProduct] = useState(null);
@@ -28,6 +29,11 @@ export default function ProductDetail({ params }) {
 
   return (
     <div className="max-w-4xl mx-auto p-4">
+      <Link href="/products">
+        <button className="bg-gray-800 text-white p-2 rounded mb-4">
+          Back
+        </button>
+      </Link>
       <div className="flex flex-col md:flex-row">
         <div className="w-full md:w-1/2">
           <img
