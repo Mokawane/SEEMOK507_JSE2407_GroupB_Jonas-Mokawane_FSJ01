@@ -3,6 +3,12 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 
+/**
+ * Component that fetches and displays a paginated list of products. Allows users to cycle through
+ * product images and navigate between pages of products.
+ *
+ * @component
+ */
 export default function Products() {
   const [products, setProducts] = useState([]);
   const [skip, setSkip] = useState(0);
@@ -10,6 +16,13 @@ export default function Products() {
   const [error, setError] = useState(null);
   const limit = 20;
 
+  /**
+   * Fetches the products from the API when the component mounts or when the skip value changes.
+   * Handles loading and error states as well.
+   *
+   * @async
+   * @function fetchProducts
+   */
   useEffect(() => {
     async function fetchProducts() {
       setLoading(true);
@@ -28,6 +41,11 @@ export default function Products() {
     fetchProducts();
   }, [skip]);
 
+  /**
+   * Handles cycling to the previous image in the product's image gallery.
+   *
+   * @param {number} index - Index of the product in the list.
+   */
   const handlePrev = (index) => {
     setProducts((prevProducts) =>
       prevProducts.map((product, i) => {
@@ -42,6 +60,11 @@ export default function Products() {
     );
   };
 
+  /**
+   * Handles cycling to the next image in the product's image gallery.
+   *
+   * @param {number} index - Index of the product in the list.
+   */
   const handleNext = (index) => {
     setProducts((prevProducts) =>
       prevProducts.map((product, i) => {
@@ -56,10 +79,20 @@ export default function Products() {
     );
   };
 
+  /**
+   * Handles navigating to the next page of products.
+   *
+   * @function handleNextPage
+   */
   const handleNextPage = () => {
     setSkip((prevSkip) => prevSkip + limit);
   };
 
+  /**
+   * Handles navigating to the previous page of products.
+   *
+   * @function handlePrevPage
+   */
   const handlePrevPage = () => {
     setSkip((prevSkip) => (prevSkip - limit >= 0 ? prevSkip - limit : 0));
   };
